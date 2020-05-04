@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Disabled</key>
+    <false/>
+    <key>Label</key>
+    <string>Turn screenshots into gifs</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>{NODE}</string>
+        <string>{PATH_TO_SCRIPT}/convert-last-screen-recording-to-gif.js</string>
+    </array>
+    <key>WatchPaths</key>
+    <array>
+        <string>{PATH_TO_SCREENSHOTS}</string>
+    </array>
+    <key>StandardErrorPath</key>
+        <string>/tmp/screenToGif.err</string>
+        <key>StandardOutPath</key>
+        <string>/tmp/screenToGif.out</string>
+</dict>
+</plist>
