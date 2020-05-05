@@ -5,7 +5,7 @@ Automatically converts screen recordings into gifs.
 ## Prerequisites
 
 You'll need [Node.js](https://nodejs.org/en/) and [Brew](https://brew.sh/) to get started.
-You'll also need [zsh](http://zsh.sourceforge.net/) but it comes pre-installed with the latest version of MacOS so you should be set.
+You'll also need [zsh](http://zsh.sourceforge.net/) but it comes pre-installed with the latest version of MacOS so you should be all set.
 
 The installer will install [ffmpeg](https://www.ffmpeg.org/) and [gifski-api](https://github.com/sindresorhus/Gifski/tree/master/gifski-api) on your computer.
 
@@ -24,7 +24,7 @@ cd [PATH-TO-THE-DOWNLOADED-FOLDER];
 
 ## Usage
 
-The install script will use `launchctl` to register a directoy watcher.
+The install script will use `launchctl` to register a directroy watcher.
 
 To see it in action:
 
