@@ -27,9 +27,9 @@ sed -i '' 's~{NODE}~'"${PATH_TO_NODE}"'~g' "$BASEDIR/screenToGif.plist";
 sed -i '' 's~{PATH_TO_SCRIPT}~'"${BASEDIR}"'~g' "$BASEDIR/screenToGif.plist";
 sed -i '' 's#{PATH_TO_SCREENSHOTS}#'"${PATH_TO_SCREENSHOTS}"'#g' "$BASEDIR/screenToGif.plist";
 
-rm -rf $BASEDIR/convert-last-screen-recording-to-gif.js;
-cp $BASEDIR/convert-last-screen-recording-to-gif.js.template $BASEDIR/convert-last-screen-recording-to-gif.js;
-sed -i '' 's#{PATH_TO_SCREENSHOTS}#'"${PATH_TO_SCREENSHOTS}"'#g' "$BASEDIR/convert-last-screen-recording-to-gif.js";
+rm -rf $BASEDIR/screenToGif.js;
+cp $BASEDIR/screenToGif.js.template $BASEDIR/screenToGif.js;
+sed -i '' 's#{PATH_TO_SCREENSHOTS}#'"${PATH_TO_SCREENSHOTS}"'#g' "$BASEDIR/screenToGif.js";
 
 if ! [ -x "$(command -v ffmpeg)" ]; then
   brew install ffmpeg;
