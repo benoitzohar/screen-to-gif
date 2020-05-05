@@ -16,9 +16,11 @@ if  [ -f /tmp/screenToGif.err ]; then
     rm -r /tmp/screenToGif.err;
 fi
 
-rm -rf $BASEDIR/screenToGif.js;
+if  [ -f $BASEDIR/screenToGif.js ]; then
+    rm -rf $BASEDIR/screenToGif.js;
+fi
 
-LA_FILE=~/Library/LaunchAgents/screenToGif.plist
+LA_FILE="$HOME/Library/LaunchAgents/screenToGif.plist"
 
 if [ -f "$LA_FILE" ]; then
     launchctl unload "$LA_FILE";

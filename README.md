@@ -47,7 +47,7 @@ We use these limitations by default:
  - fps: **20**
  - width: **800px** 
 
-If you wish to change these settings, search for `800` in the `screenToGif.js.template`, edit as need, then run `./install.zsh` again.
+If you wish to change these settings, search for `800` in the file `templates/screenToGif.js`, edit as need, then run `./install.zsh` again.
 
 ## Troubleshooting
 

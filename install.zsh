@@ -3,6 +3,7 @@
 function realpath { echo $(cd $(dirname $1); pwd)/$(basename $1); }
 
 BASEDIR=`realpath $(dirname $0)`
+TEMPLATEDIR="$BASEDIR/templates"
 
 if ! [ -x "$(command -v node)" ]; then
   echo 'Error: node is not installed.' >&2
@@ -21,15 +22,18 @@ if ! [ -d /tmp/screenToGif ]; then
     mkdir /tmp/screenToGif
 fi
 
-rm -rf $BASEDIR/screenToGif.plist;
-cp $BASEDIR/screenToGif.plist.template $BASEDIR/screenToGif.plist;
-sed -i '' 's~{NODE}~'"${PATH_TO_NODE}"'~g' "$BASEDIR/screenToGif.plist";
-sed -i '' 's~{PATH_TO_SCRIPT}~'"${BASEDIR}"'~g' "$BASEDIR/screenToGif.plist";
-sed -i '' 's#{PATH_TO_SCREENSHOTS}#'"${PATH_TO_SCREENSHOTS}"'#g' "$BASEDIR/screenToGif.plist";
+PLISTFILE="screenToGif.plist"
+JSFILE="screenToGif.js"
 
-rm -rf $BASEDIR/screenToGif.js;
-cp $BASEDIR/screenToGif.js.template $BASEDIR/screenToGif.js;
-sed -i '' 's#{PATH_TO_SCREENSHOTS}#'"${PATH_TO_SCREENSHOTS}"'#g' "$BASEDIR/screenToGif.js";
+rm -rf $BASEDIR/$PLISTFILE;
+cp $TEMPLATEDIR/$PLISTFILE $BASEDIR/$PLISTFILE;
+sed -i '' 's~{NODE}~'"${PATH_TO_NODE}"'~g' "$BASEDIR/$PLISTFILE";
+sed -i '' 's~{PATH_TO_SCRIPT}~'"${BASEDIR}"'~g' "$BASEDIR/$PLISTFILE";
+sed -i '' 's#{PATH_TO_SCREENSHOTS}#'"${PATH_TO_SCREENSHOTS}"'#g' "$BASEDIR/$PLISTFILE";
+
+rm -rf $BASEDIR/$JSFILE;
+cp $TEMPLATEDIR/$JSFILE $BASEDIR/$JSFILE;
+sed -i '' 's#{PATH_TO_SCREENSHOTS}#'"${PATH_TO_SCREENSHOTS}"'#g' "$BASEDIR/$JSFILE";
 
 if ! [ -x "$(command -v ffmpeg)" ]; then
   brew install ffmpeg;
@@ -38,13 +42,13 @@ if ! [ -x "$(command -v gifski)" ]; then
   brew install gifski;
 fi
 
-LA_FILE=~/Library/LaunchAgents/screenToGif.plist
+LA_FILE="$HOME/Library/LaunchAgents/$PLISTFILE"
 
 if [ -f "$LA_FILE" ]; then
     launchctl unload "$LA_FILE";
 fi
 
-mv $BASEDIR/screenToGif.plist "$LA_FILE";
+mv $BASEDIR/$PLISTFILE "$LA_FILE";
 launchctl load "$LA_FILE"
 
 echo "Installed 🥳"
