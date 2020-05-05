@@ -1,6 +1,6 @@
-# screen-to-gif
-[MacOS only] Convert automatically screen recordings into gifs.
+# ScreenToGif
 
+Automatically converts screen recordings into gifs.
 
 ## Prerequisites
 
@@ -36,12 +36,52 @@ To see it in action:
 6. Wait a few seconds for the script to be able to convert the movie to gif
 7. Enjoy your gif.
 
-## 
+## Limitations
 
+The goal of this app is to allow you to drop a quick screen record to Github, because Github doesn't allow you to drop a movie in the description.
+
+This is the reason why the gif won't have a good quality: it will be smaller in size.
+
+We use these limitations by default:
+ - quality : **10%**
+ - fps: **20**
+ - width: **800px** 
+
+If you wish to change these settings, search for `800` in the `screenToGif.js.template`, edit as need, then run `./install.zsh` again.
+
+## Troubleshooting
+
+To see the logs of the app:
+
+1. Open a terminal
+2. type the following command:
+
+```bash
+tail -f /tmp/screenToGif.out
+```
+
+3. Record the screen to see it in action
+
+To see the errors of the app:
+
+1. Open a terminal
+2. type the following command:
+
+```bash
+tail -f /tmp/screenToGif.err
+```
+
+3. Change anything in the **Screenshots** folder to see any potential error with the script.
 
 ## Uninstallation
 
 Run the uninstall script from the downloaded directory:
+
 ```bash
 ./uninstall.zsh
 ```
+
+
+## License
+
+ScreenToGif is GNU licensed, as found in the [LICENSE](https://github.com/benoitzohar/screen-to-gif/blob/master/LICENSE) file.
