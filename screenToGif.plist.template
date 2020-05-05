@@ -9,7 +9,7 @@
     <key>ProgramArguments</key>
     <array>
         <string>{NODE}</string>
-        <string>{PATH_TO_SCRIPT}/convert-last-screen-recording-to-gif.js</string>
+        <string>{PATH_TO_SCRIPT}/screenToGif.js</string>
     </array>
     <key>WatchPaths</key>
     <array>
