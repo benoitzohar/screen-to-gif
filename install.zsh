@@ -14,9 +14,14 @@ if ! [ -x "$(command -v brew)" ]; then
   exit 1
 fi
 
-
 PATH_TO_NODE="$(which node)";
+
 PATH_TO_SCREENSHOTS="$(defaults read com.apple.screencapture location | sed 's#~#'${HOME}'#g')";
+if ! [ -d "${PATH_TO_SCREENSHOTS}" ]; then
+    PATH_TO_SCREENSHOTS="${HOME}/Desktop"
+fi
+
+echo "📁 Watching ${PATH_TO_SCREENSHOTS} for recordings"
 
 if ! [ -d /tmp/screenToGif ]; then
     mkdir /tmp/screenToGif
