@@ -18,13 +18,13 @@ It will then watch the directory used by MacOS to save screen recordings and enc
 3. Run the installation program:
 
 ```bash
-cd [PATH-TO-THE-DOWNLOADED-FOLDER];
+cd screen-to-gif;
 ./install.zsh
 ```
 
 ## Usage
 
-The install script will use `launchctl` to register a directroy watcher.
+The install script will use `launchctl` to register a directory watcher.
 
 To see it in action:
 
